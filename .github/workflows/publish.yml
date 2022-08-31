@@ -23,7 +23,7 @@ jobs:
         run: dotnet pack --configuration Release
 
       - name: Publish OpenTelemetry.Exporter.Rd.Model
-        run: dotnet nuget push OpenTelemetry.Exporter.Rd.Model/bin/Release/*.nupkg --source "github"
+        run: dotnet nuget push OpenTelemetry.Exporter.Rd.Model/bin/Release/*.nupkg --api-key ${{ secrets.GITHUB_TOKEN }} --source "github"
 
       - name: Publish OpenTelemetry.Exporter.Rd
-        run: dotnet nuget push OpenTelemetry.Exporter.Rd/bin/Release/*.nupkg --source "github"
+        run: dotnet nuget push OpenTelemetry.Exporter.Rd/bin/Release/*.nupkg --api-key ${{ secrets.GITHUB_TOKEN }} --source "github"
