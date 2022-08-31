@@ -1,0 +1,29 @@
+name: Publish Packages
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  publish:
+    name: Publish NuGet
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Fetch Sources
+        uses: actions/checkout@v3
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v2
+
+      - name: Authenticate to GitHub Packages
+        run: dotnet nuget add source --username rafaelldi --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/rafaelldi/index.json"
+
+      - name: Pack project
+        run: dotnet pack --configuration Release
+
+      - name: Push OpenTelemetry.Exporter.Rd.Model
+        run: dotnet nuget push OpenTelemetry.Exporter.Rd.Model/bin/Release/*.nupkg --source "github"
+
+      - name: Push OpenTelemetry.Exporter.Rd
+        run: dotnet nuget push OpenTelemetry.Exporter.Rd/bin/Release/*.nupkg --source "github"

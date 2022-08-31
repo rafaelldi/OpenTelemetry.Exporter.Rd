@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <PackageId>OpenTelemetry.Exporter.Rd</PackageId>
+        <Version>0.1.0</Version>
+        <Authors>rafaelldi</Authors>
+        <LangVersion>latestmajor</LangVersion>
+        <RepositoryUrl>https://github.com/rafaelldi/OpenTelemetry.Exporter.Rd</RepositoryUrl>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="OpenTelemetry" Version="1.3.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\OpenTelemetry.Exporter.Rd.Model\OpenTelemetry.Exporter.Rd.Model.csproj" />
+    </ItemGroup>
+
+</Project>
