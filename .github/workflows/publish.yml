@@ -2,7 +2,7 @@ name: Publish Packages
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   publish:
@@ -22,8 +22,8 @@ jobs:
       - name: Pack project
         run: dotnet pack --configuration Release
 
-      - name: Push OpenTelemetry.Exporter.Rd.Model
+      - name: Publish OpenTelemetry.Exporter.Rd.Model
         run: dotnet nuget push OpenTelemetry.Exporter.Rd.Model/bin/Release/*.nupkg --source "github"
 
-      - name: Push OpenTelemetry.Exporter.Rd
+      - name: Publish OpenTelemetry.Exporter.Rd
         run: dotnet nuget push OpenTelemetry.Exporter.Rd/bin/Release/*.nupkg --source "github"
