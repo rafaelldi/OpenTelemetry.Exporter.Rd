@@ -5,14 +5,14 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <PackageId>OpenTelemetry.Exporter.Rd.Model</PackageId>
-        <Version>0.1.1</Version>
+        <Version>0.2.0</Version>
         <Authors>rafaelldi</Authors>
         <LangVersion>latestmajor</LangVersion>
         <RepositoryUrl>https://github.com/rafaelldi/OpenTelemetry.Exporter.Rd</RepositoryUrl>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="JetBrains.RdFramework.Reflection" Version="2022.2.1" />
+      <PackageReference Include="JetBrains.RdFramework.Reflection" Version="2022.3.3" />
     </ItemGroup>
 
 </Project>

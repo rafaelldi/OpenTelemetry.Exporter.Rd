@@ -6,33 +6,25 @@ namespace OpenTelemetry.Exporter.Rd.Model;
 [RdRpc]
 public interface IOpenTelemetryHostModel
 {
-    ISignal<AspNetCoreActivity> OnActivity { get; }
+    ISignal<RdActivity> OnActivity { get; }
 }
 
 [RdScalar]
-public class AspNetCoreActivity
+public class RdActivity
 {
-    public string DisplayName { get; private set; }
-    public string? Method { get; private set; }
-    public string? Target { get; private set; }
-    public string? Route { get; private set; }
-    public int? StatusCode { get; private set; }
-    public long Duration { get; private set; }
+    public string? Id { get; set; }
+    public string? ParentId { get; set; }
+    public string TraceId { get; set; }
+    public string DisplayName { get; set; }
+    public string OperationName { get; set; }
+    public string SourceName { get; set; }
+    public long Duration { get; set; }
+    public List<RdTag> Tags { get; set; }
+}
 
-    public AspNetCoreActivity(
-        string displayName,
-        string? method,
-        string? target,
-        string? route,
-        int? statusCode,
-        long duration
-    )
-    {
-        DisplayName = displayName;
-        Method = method;
-        Target = target;
-        Route = route;
-        StatusCode = statusCode;
-        Duration = duration;
-    }
+[RdScalar]
+public class RdTag
+{
+    public string Key { get; set; }
+    public string? Value { get; set; }
 }
